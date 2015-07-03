@@ -1,4 +1,5 @@
 require "stash_api/version"
+require "http/http"
 
 module StashAPI
 

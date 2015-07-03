@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Dependencies
-gem 'httparty', '~> 0.13.2'
+# Specify your gem's dependencies in stash_api.gemspec
+gemspec
