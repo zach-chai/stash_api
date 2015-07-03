@@ -1,11 +1,11 @@
 require 'test_helper'
 
-class StashApiTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::StashApi::VERSION
+describe StashAPI do
+  it 'must have a valid version' do
+    StashAPI::VERSION.wont_be_nil
   end
 
-  def test_it_does_something_useful
-    assert false
+  it 'must test something useful' do
+    false.must_equal true
   end
 end
