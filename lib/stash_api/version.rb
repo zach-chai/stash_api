@@ -1,3 +1,3 @@
-module StashApi
+module StashAPI
   VERSION = "0.1.0"
 end

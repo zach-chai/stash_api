@@ -5,7 +5,7 @@ require 'stash_api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "stash_api"
-  spec.version       = StashApi::VERSION
+  spec.version       = StashAPI::VERSION
   spec.authors       = ["Zachary Chai"]
   spec.email         = ["zachary.chai@outlook.com"]
 
@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest"
+  spec.add_development_dependency "byebug"
 end
