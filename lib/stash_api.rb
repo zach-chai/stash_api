@@ -1,9 +1,6 @@
-require "stash_api/version"
-require "http/http"
+require 'http/http'
 
-module StashAPI
+require 'stash_api/version'
+require 'stash_api/options'
+require 'stash_api/base'
 
-	class Base
-		
-	end
-end
