@@ -2,27 +2,31 @@ require 'httparty'
 
 module HTTP
 
-	class Basement
-		include HTTParty
-	end
+  class Basement
+    include HTTParty
+  end
 
-	class Client
-		class << self
-			
-			def host= newHost
-				Basement.base_uri newHost
-			end
+  class Client
+    class << self
 
-			def get path, options = {}
-				Basement.get(path, options);
-			end
+      def base_uri=(value)
+        Basement.base_uri value
+      end
 
-			def post path, options = {}
-				Basement.post(path, options);
-			end
-		end
-	end
+      def get(path, options = {})
+        Basement.get(path, options);
+      end
+
+      def post(path, options = {})
+        Basement.post(path, options);
+      end
+
+      def base_uri
+        Basement.default_options[:base_uri].sub 'http://', ''
+      end
+
+      # force httparty to add the 'http://' to base uri
+      base_uri = ''
+    end
+  end
 end
-
-# HTTP::Client.host = 'google.ca'
-# puts HTTP::Client.get '/'
