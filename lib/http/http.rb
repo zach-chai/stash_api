@@ -25,6 +25,10 @@ module HTTP
         Basement.default_options[:base_uri].sub 'http://', ''
       end
 
+      def basic_auth(u, v)
+        Basement.basic_auth u, v
+      end
+
       # force httparty to add the 'http://' to base uri
       base_uri = ''
     end
