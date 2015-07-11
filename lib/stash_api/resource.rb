@@ -3,10 +3,11 @@ module StashAPI
     @@resources = []
     @@resource_ids = []
 
-    def self.fetch(options = {})
+    def self.fetch(query = {})
+      options = {}
+      options[:query] = query
 
-      # TODO add options to request
-      response = HTTP::Client.get resource_path
+      response = HTTP::Client.get resource_path, options
       reset_resource_chain
 
       if response.code == 200
@@ -21,7 +22,6 @@ module StashAPI
       options[:body] = payload.to_json
       options[:headers] = {"Content-Type" => "application/json"}
 
-      # TODO add options to request
       response = HTTP::Client.post resource_path, options
 
       response
