@@ -1,15 +1,12 @@
 module StashAPI
   class Repo < Resource
     class << self
+      @@position = 2
 
-      def repos(key = nil)
-        add_resource 2, 'pull-request', key
-
-        if key.nil?
-          self
-        else
-          self # change this to the next resource in the chain
-        end
+      def pull_requests(id = nil)
+        raise_resource_key_missing if resource_id(@@position - 1) == nil
+        add_resource_to_chain @@position, 'pull-requests', id
+        PullRequest
       end
     end
   end
