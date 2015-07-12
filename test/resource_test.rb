@@ -23,6 +23,34 @@ describe StashAPI::Resource do
     }.must_raise 'previous resource has no key to allow chaining'
   end
 
-  #TODO test fetch and create_resource methods by mocking out requests
+  describe 'fetch' do
+    #TODO add more tests
+
+    it 'must raise error if domain is not set' do
+      Proc.new {
+        StashAPI::Resource.fetch
+      }.must_raise RuntimeError
+    end
+  end
+
+  describe 'fetch_all' do
+    #TODO add more tests
+
+    it 'must raise error if domain is not set' do
+      Proc.new {
+        StashAPI::Resource.fetch_all
+      }.must_raise RuntimeError
+    end
+  end
+
+  describe 'create_resource' do
+    #TODO add more tests
+
+    it 'must raise error if domain is not set' do
+      Proc.new {
+        StashAPI::Resource.create_resource data: 'data'
+      }.must_raise RuntimeError
+    end
+  end
 
 end

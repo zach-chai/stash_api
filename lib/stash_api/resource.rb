@@ -4,6 +4,8 @@ module StashAPI
     @@resource_ids = []
 
     def self.fetch(query = {})
+      raise "set a domain first 'StashAPI::Base.domain(<domain>)'" unless StashAPI::Options.option(:domain)
+
       options = {}
       options[:query] = query
 
@@ -18,8 +20,9 @@ module StashAPI
     end
 
     def self.fetch_all(query = {})
+      raise "set a domain first 'StashAPI::Base.domain(<domain>)'" unless StashAPI::Options.option(:domain)
+      
       options = {}
-
       query[:limit] = 1000
       query[:start] = 0
       options[:query] = query
@@ -41,6 +44,7 @@ module StashAPI
     end
 
     def self.create_resource(payload, options = {})
+      raise "set a domain first 'StashAPI::Base.domain(<domain>)'" unless StashAPI::Options.option(:domain)
 
       options[:body] = payload.to_json
       options[:headers] = {'Content-Type' => 'application/json'}
