@@ -36,6 +36,11 @@ StashAPI::Core.projects.fetch(name: "project_name")
 # or if you know the id/key of the resource
 StashAPI::Core.projects('ID').fetch
 ```
+Users and projects are a top level resource, accessible directly from Core. To access something like pull requests you need to use resource chaining.
+```ruby
+# retrieves pull requests for the specified repo
+StashAPI::Core.projects('key').repos('slug').pull_requests.fetch
+```
 
 ## Development
 
