@@ -17,10 +17,33 @@ module StashAPI
       end
     end
 
+    def self.fetch_all(query = {})
+      options = {}
+
+      query[:limit] = 1000
+      query[:start] = 0
+      options[:query] = query
+
+      results = []
+
+      begin
+        response = HTTP::Client.get(resource_path, options)
+
+        if response.code == 200
+          response = response.parsed_response
+          results.concat response['values']
+          options[:query][:start] = response['start'] + response['limit']
+        else
+          results == response
+        end
+      end while !response['isLastPage']
+      results
+    end
+
     def self.create_resource(payload, options = {})
 
       options[:body] = payload.to_json
-      options[:headers] = {"Content-Type" => "application/json"}
+      options[:headers] = {'Content-Type' => 'application/json'}
 
       response = HTTP::Client.post resource_path, options
 
