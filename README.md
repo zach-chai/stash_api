@@ -20,7 +20,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+StashAPI::Base.domain("stash.mycompany.com") # address of your stash server
+StashAPI::Base.basic_auth("username", "password") # optional credentials
+```
+Now you can send requests to Stash
+```ruby
+# You can interact with the core rest API as follows
+StashAPI::Core.projects.fetch # to return projects
+StashAPI::Core.users.fetch # to return users
+
+# to supply query parameters pass them in as a hash
+StashAPI::Core.projects.fetch(name: "project_name")
+
+# or if you know the id/key of the resource
+StashAPI::Core.projects('ID').fetch
+```
 
 ## Development
 
