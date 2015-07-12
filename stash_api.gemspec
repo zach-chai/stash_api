@@ -8,28 +8,19 @@ Gem::Specification.new do |spec|
   spec.version       = StashAPI::VERSION
   spec.authors       = ["Zachary Chai"]
   spec.email         = ["zachary.chai@outlook.com"]
-
-  spec.summary       = "Atlassian Stash API wrapper"
-  spec.description   = "A wrapper for Atlassian Stash API"
+  spec.summary       = "Atlassian Stash API client"
+  spec.description   = "A client for interacting with Atlassian Stash API"
   spec.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.required_ruby_version     = '>= 2.2.0'
 
   spec.add_dependency 'httparty', '~> 0.13.2'
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest"
-  spec.add_development_dependency "byebug"
 end
