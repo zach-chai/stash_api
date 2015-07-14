@@ -4,6 +4,7 @@ module StashAPI
 
       def domain(value = nil)
         return Options.option(:domain) unless value
+        value.chomp! '/' if value[-1]
         Options.option :domain, value
       end
 
