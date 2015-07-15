@@ -3,4 +3,3 @@ require 'stash_api'
 
 require 'minitest/spec'
 require 'minitest/autorun'
-require 'byebug'
