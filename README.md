@@ -1,5 +1,7 @@
 # StashAPI
 
+[![Build Status](https://magnum.travis-ci.com/zach-chai/stash_api.svg?token=A1zsSYqVH6BgLegWZuAj&branch=master)](https://magnum.travis-ci.com/zach-chai/stash_api)
+
 A client for interacting with Atlassian Stash API
 
 ## Installation
