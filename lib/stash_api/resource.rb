@@ -12,11 +12,7 @@ module StashAPI
       response = HTTP::Client.get resource_path, options
       reset_resource_chain
 
-      if response.code == 200
-        response.parsed_response
-      else
-        response.code
-      end
+      response
     end
 
     def self.fetch_all(query = {})
@@ -31,15 +27,17 @@ module StashAPI
 
       begin
         response = HTTP::Client.get(resource_path, options)
+        reset_resource_chain
 
         if response.code == 200
           response = response.parsed_response
           results.concat response['values']
           options[:query][:start] = response['start'] + response['limit']
         else
-          results == response
+          results = response
         end
       end while !response['isLastPage']
+
       results
     end
 
@@ -50,6 +48,7 @@ module StashAPI
       options[:headers] = {'Content-Type' => 'application/json'}
 
       response = HTTP::Client.post resource_path, options
+      reset_resource_chain
 
       response
     end
