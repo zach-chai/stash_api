@@ -15,32 +15,6 @@ module StashAPI
       response
     end
 
-    def self.fetch_all(query = {})
-      raise "set a domain first 'StashAPI::Base.domain(<domain>)'" unless StashAPI::Options.option(:domain)
-      
-      options = {}
-      query[:limit] = 1000
-      query[:start] = 0
-      options[:query] = query
-
-      results = []
-
-      begin
-        response = HTTP::Client.get(resource_path, options)
-        reset_resource_chain
-
-        if response.code == 200
-          response = response.parsed_response
-          results.concat response['values']
-          options[:query][:start] = response['start'] + response['limit']
-        else
-          results = response
-        end
-      end while !response['isLastPage']
-
-      results
-    end
-
     def self.create_resource(payload, options = {})
       raise "set a domain first 'StashAPI::Base.domain(<domain>)'" unless StashAPI::Options.option(:domain)
 

@@ -33,16 +33,6 @@ describe StashAPI::Resource do
     end
   end
 
-  describe 'fetch_all' do
-    #TODO add more tests
-
-    it 'must raise error if domain is not set' do
-      Proc.new {
-        StashAPI::Resource.fetch_all
-      }.must_raise RuntimeError
-    end
-  end
-
   describe 'create_resource' do
     #TODO add more tests
 
