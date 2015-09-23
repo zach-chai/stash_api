@@ -1,4 +1,5 @@
-# StashAPI
+# StashAPI 
+[![Build Status](https://travis-ci.org/zach-chai/stash_api.svg?branch=master)](https://travis-ci.org/zach-chai/stash_api)
 
 A client for interacting with Atlassian Stash API
 
