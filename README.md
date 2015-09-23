@@ -1,5 +1,5 @@
 # StashAPI 
-[![Build Status](https://travis-ci.org/zach-chai/stash_api.svg?branch=master)](https://travis-ci.org/zach-chai/stash_api)
+[![Build Status](https://travis-ci.org/zach-chai/stash_api.svg?branch=master)](https://travis-ci.org/zach-chai/stash_api) [![Gem Version](https://badge.fury.io/rb/stash_api.svg)](http://badge.fury.io/rb/stash_api)
 
 A client for interacting with Atlassian Stash API
 
